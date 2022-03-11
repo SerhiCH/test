@@ -1,0 +1,79 @@
+.adaptive_image {
+    margin: 0px 0px 20px 0px;
+    padding: 0px 0px 50% 0px;
+    overflow: hidden;
+    position: relative;
+    > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.clearfix:after {content: '';display: table;width: 100%;clear: both;}
+
+@mixin adaptive_block ($w:50,$h:50,$containerWide:0) {
+    background-size: contain;
+    @if $containerWide == 0 {
+        width: $w+vw;
+        height: $h+vw;
+    } @else {
+        width: ($w/$containerWide)*100%;
+        max-height: $h+px;
+        height: ($h/$containerWide)*100vw;
+    }
+}
+
+
+// SCSS миксин для подключения шрифтов
+// @mixin font($font_family, $file_name, $weight, $style) {
+//     @font-face {
+//         font-family: $font_family;
+//         font-display: swap;
+//         src: local('#{$file_name}'),
+//              url('../fonts/#{$file_name}.eot?#iefix') format('embedded-opentype'),
+//              url('../fonts/#{$file_name}.ttf') format('truetype'),
+//              url("../fonts/#{$file_name}.woff") format("woff"),
+//              url("../fonts/#{$file_name}.woff2") format("woff2");
+//         font-weight: #{$weight};
+//         font-style: #{$style};
+//     }
+// }
+
+// 100 thin, 200 UltraLight, 300 light, 400 normal, 500 medium, 600 semibold, 700 bold, 800 Heavy, 900 black
+@mixin font($font_family) {
+    $z:0;
+    $font_name: $font_family;
+    @for $i from 1 to 10 {
+        @if $i == 1 {$font_family: #{$font_name}-Thin;}
+        @if $i == 2 {$font_family: #{$font_name}-UltraLight;}
+        @if $i == 3 {$font_family: #{$font_name}-Light;}
+        @if $i == 4 {$font_family: #{$font_name}-Regular;}
+        @if $i == 5 {$font_family: #{$font_name}-Medium;}
+        @if $i == 6 {$font_family: #{$font_name}-SemiBold;}
+        @if $i == 7 {$font_family: #{$font_name}-Bold;}
+        @if $i == 8 {$font_family: #{$font_name}-ExtraBold;}
+        @if $i == 9 {$font_family: #{$font_name}-Black;}
+        @each $style in normal, italic { 
+            @if $style == italic {
+                $font_family: #{$font_family}Italic;
+            }
+            @font-face {
+                font-family: "#{$font_name}";
+                font-display: swap;
+                src: url("../fonts/#{$font_name}/#{$font_family}.eot");
+                src: local("#{$font_family}"),
+                     url("../fonts/#{$font_name}/#{$font_family}.eot?#iefix") format("embedded-opentype"),
+                     url("../fonts/#{$font_name}/#{$font_family}.ttf") format("truetype"),
+                     url("../fonts/#{$font_name}/#{$font_family}.woff") format("woff"),
+                     url("../fonts/#{$font_name}/#{$font_family}.woff2") format("woff2");
+                font-weight: #{$i}#{$z}#{$z};
+                font-style: #{$style};
+            }
+        }
+    }
+}
+
