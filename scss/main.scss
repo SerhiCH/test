@@ -363,7 +363,8 @@ body {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    filter: invert(27%) sepia(4%) saturate(1012%) hue-rotate(64deg) brightness(91%) contrast(80%);
+    filter: invert(27%) sepia(4%) saturate(1012%) hue-rotate(64deg)
+        brightness(91%) contrast(80%);
     &:hover {
         opacity: 0.9;
         filter: invert(58%) sepia(11%) saturate(462%) hue-rotate(115deg)
@@ -531,7 +532,6 @@ body {
     .footer-block {
         min-height: 0px;
         height: 100%;
-        
     }
 }
 
