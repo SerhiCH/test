@@ -14,9 +14,7 @@
 // @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap");
 // @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap");
-
 /*====================================================================*/
-
 .background-img {
     background: url("../img/_template/2.png") no-repeat center top;
     position: fixed;
@@ -35,7 +33,15 @@
 // * {border: 1px solid red;}
 
 /*====================================================================*/
-
+// max-width
+$mw1400: 1399.98px;
+$mw1200: 1199.98px;
+$mw992: 991.98px;
+$mw768: 767.98px;
+$mw666: 665.98px;
+$mw576: 575.98px;
+$mw320: 319.98px;
+/*============================================================separate*/
 // mixins
 @mixin center-text {
     display: flex;
@@ -47,16 +53,13 @@
     filter: invert(1) brightness(50%) sepia(1) hue-rotate(($d * 3.6) + deg)
         saturate(400%) brightness($b * 2%);
 }
-
 /*====================================================================*/
-
 // colors
 $color1: #484d47;
 $color2: #fdfdfd;
 $color3: #f4f6f3;
 $color4: #e1e6e0;
 $color5: #79918b;
-
 /*============================================================separate*/
 
 *,
